@@ -1,8 +1,13 @@
-name: workflow_01
+name: push_solve_trigger
 on:
   push:
     branches:
       - 'main'
+    paths:
+      - '**.py'
+      - '**.c'
+      - '**.cpp'
+      - '**.java'
 
 jobs:
   build:
