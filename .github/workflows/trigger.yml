@@ -12,7 +12,7 @@ on:
 env:
   NICKNAME: bmincof
   EMAIL: bminlvcoffee@gmail.com
-  REPOSITORY: Algorihms
+  REPOSITORY: Algorithms
 
 jobs:
   build:
