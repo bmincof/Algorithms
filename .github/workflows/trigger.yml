@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: bmincof/github-action-test
+          repository: bmincof/algostun-auto-commit
           token: ${{ secrets.ACTIONS_KEY }}
       - run: ls
 
@@ -25,4 +25,4 @@ jobs:
           python-version: '3.10'
           cache: 'pip' # caching pip dependencies
       - run: pip install -r requirements.txt
-      - run: python when_commit_do_this.py ${{ secrets.ACTIONS_KEY }}
+      - run: python main.py ${{ secrets.ACTIONS_KEY }}
