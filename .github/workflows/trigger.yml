@@ -8,6 +8,7 @@ on:
       - '**.c'
       - '**.cpp'
       - '**.java'
+  workflow_dispatch:
 
 env:
   NICKNAME: bmincof
@@ -31,4 +32,4 @@ jobs:
           python-version: '3.10'
           cache: 'pip' # caching pip dependencies
       - run: pip install -r requirements.txt
-      - run: python /scripts/main.py ${{ secrets.ACTIONS_KEY }} ${{ env.NICKNAME }} ${{ env.EMAIL }} ${{ env.REPOSITORY }}
+      - run: python scripts/main.py ${{ secrets.ACTIONS_KEY }} ${{ env.NICKNAME }} ${{ env.EMAIL }} ${{ env.REPOSITORY }}
