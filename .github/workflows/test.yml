@@ -1,0 +1,37 @@
+name: algostun_auto_commit_test
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '**.py'
+      - '**.c'
+      - '**.cpp'
+      - '**.java'
+      - '**.js'
+  workflow_dispatch:
+
+env:
+  NICKNAME: bmincof
+  EMAIL: bminlvcoffee@gmail.com
+  REPOSITORY: Algorithms
+  REF: test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: bmincof/algostun-auto-commit
+          token: ${{ secrets.ACTIONS_KEY }}
+          ref: develop
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip' # caching pip dependencies
+      - run: ls
+      - run: pip install -r requirements.txt
+      - run: python scripts/main.py ${{ secrets.ACTIONS_KEY }} ${{ env.NICKNAME }} ${{ env.EMAIL }} ${{ env.REPOSITORY }} ${{ env.REF }}
