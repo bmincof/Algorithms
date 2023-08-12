@@ -8,6 +8,7 @@ on:
       - '**.c'
       - '**.cpp'
       - '**.java'
+      - '**.js'
   workflow_dispatch:
 
 env:
@@ -23,7 +24,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           repository: bmincof/algostun-auto-commit
-          ref: develop
+          ref: main
           token: ${{ secrets.ACTIONS_KEY }}
       - run: ls
 
