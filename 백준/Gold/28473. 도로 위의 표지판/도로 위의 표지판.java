@@ -78,13 +78,13 @@ public class Main {
 
         Collections.sort(roads);
 
+        StringBuilder answer = new StringBuilder();
         int connect = 0;
         long cost = 0;
-        List<Integer> usedSigns = new LinkedList<>();
         for (Road road : roads) {
             // 아직 이동한 적 없었다면 -> union : true
             if (union(road.x, road.y)) {
-                usedSigns.add(road.sign);
+                answer.append(road.sign);
                 cost += road.cost;
                 // 연결된 도시의 개수를 +1
                 // N - 1개의 도로를 이용했다면 모든 도시를 이동할 수 있으므로 끝내기
@@ -95,12 +95,6 @@ public class Main {
         }
 
         if (connect == N - 1) {
-            Collections.sort(usedSigns);
-            StringBuilder answer = new StringBuilder();
-
-            for (int sign : usedSigns) {
-                answer.append(sign);
-            }
             answer.append(" ").append(cost);
             System.out.println(answer);
         } else {
